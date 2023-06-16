@@ -1,0 +1,39 @@
+{
+  "name": "ericstermer.com",
+  "version": "1.0.0",
+  "description": "Personal Portfolio Website for Eric Stermer",
+  "author": "Eric Stermer",
+  "license": "ISC",
+  "main": "index.js",
+  "scripts": {
+    "dev": "next dev -p 3000",
+    "build": "next build",
+    "start": "next start",
+    "deploy": "serverless"
+  },
+  "dependencies": {
+    "@emotion/react": "^11.11.1",
+    "@emotion/styled": "^11.11.0",
+    "@mui/material": "^5.13.5",
+    "case-converter": "^1.0.1",
+    "classnames": "^2.2.6",
+    "html-to-text": "^6.0.0",
+    "isomorphic-unfetch": "^3.1.0",
+    "next": "^13.4.6",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.22.5",
+    "@babel/eslint-parser": "^7.22.5",
+    "eslint": "^8.42.0",
+    "eslint-config-prettier": "^6.4.0",
+    "eslint-plugin-prettier": "^3.1.1",
+    "eslint-plugin-react": "^7.16.0",
+    "prettier": "1.18.2",
+    "prettier-eslint": "^9.0.0"
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  }
+}
