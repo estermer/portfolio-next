@@ -1,25 +1,8 @@
 import React from "react"
-import { Typography } from "@material-ui/core"
-import { makeStyles } from "@material-ui/styles"
+import { Box, Typography } from "@mui/material"
 import Section from "../components/Section"
 
-const useStyles = makeStyles(() => ({
-	photos: {
-		display: "flex",
-		justifyContent: "center",
-		flexWrap: "wrap",
-	},
-	photo: {
-		margin: "10px",
-	},
-	centerText: {
-		textAlign: "center",
-	},
-}))
-
 export default function About() {
-	const classes = useStyles()
-
 	return (
 		<>
 			<Section maxWidth="md">
@@ -55,34 +38,49 @@ export default function About() {
 				</Typography>
 			</Section>
 			<Section>
-				<div className={classes.photos}>
-					<img
-						className={classes.photo}
+				<Box
+					sx={{
+						display: "flex",
+						justifyContent: "center",
+						flexWrap: "wrap",
+					}}>
+					<Box
+						component="img"
+						sx={{ margin: "10px" }}
 						height="250"
 						alt="Pulsars at Boston"
-						src="/images/pulsars-at-boston.png"/>
-					<img
-						className={classes.photo}
+						src="/images/pulsars-at-boston.png"
+					/>
+					<Box
+						component="img"
+						sx={{ margin: "10px" }}
 						height="250"
 						alt="George Iocolano"
-						src="/images/george-marathon-run.png"/>
-					<img
-						className={classes.photo}
+						src="/images/george-marathon-run.png"
+					/>
+					<Box
+						component="img"
+						sx={{ margin: "10px" }}
 						height="250"
 						alt="Tom Marten"
-						src="/images/marten-marathon-run.png"/>
-					<img
-						className={classes.photo}
+						src="/images/marten-marathon-run.png"
+					/>
+					<Box
+						component="img"
+						sx={{ margin: "10px" }}
 						height="250"
 						alt="24hr Marathon"
-						src="/images/24hr-marathon.png"/>
-					<img
-						className={classes.photo}
+						src="/images/24hr-marathon.png"
+					/>
+					<Box
+						component="img"
+						sx={{ margin: "10px" }}
 						height="250"
 						alt="Winter Training"
-						src="/images/winter-training.png"/>
-				</div>
-				<div className={classes.centerText}>
+						src="/images/winter-training.png"
+					/>
+				</Box>
+				<Box sx={{ textAlign: "center" }}>
 					<Typography
 						component="a"
 						href="https://flic.kr/s/aHsiNqdt8M"
@@ -91,7 +89,7 @@ export default function About() {
 						variant="caption">
 						*Credit for Photos: Al Hastings
 					</Typography>
-				</div>
+				</Box>
 			</Section>
 		</>
 	)

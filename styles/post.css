@@ -1,0 +1,33 @@
+.post-content p {
+	line-height: 1.7;
+	margin-bottom: 1rem;
+}
+
+.post-content img {
+	max-width: 100%;
+	height: auto;
+	display: block;
+	margin: 1rem auto;
+}
+
+.post-content h1,
+.post-content h2,
+.post-content h3,
+.post-content h4,
+.post-content h5,
+.post-content h6 {
+	margin-top: 1.5rem;
+	margin-bottom: 0.5rem;
+}
+
+.post-content a {
+	text-decoration: underline;
+}
+
+.post-content blockquote {
+	border-left: 4px solid #ccc;
+	padding-left: 1rem;
+	margin-left: 0;
+	color: #555;
+}
+

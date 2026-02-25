@@ -1,41 +1,16 @@
 import React from "react"
-import Link from "next/Link"
-import { makeStyles } from "@material-ui/core/styles"
+import Link from "next/link"
 import {
+	Box,
+	Button,
 	Card,
 	CardActions,
 	CardContent,
 	CardMedia,
-	Button,
 	Typography,
-} from "@material-ui/core"
+} from "@mui/material"
 import { MdAccessTime as ClockIcon } from "react-icons/md"
 import { getExcerpt, createMarkup, toDateString } from "../lib/post-helpers"
-
-const useStyles = makeStyles(theme => ({
-	cardActionArea: {
-		display: "flex",
-		justifyContent: "space-between",
-		[theme.breakpoints.down("sm")]: {
-			flexWrap: "wrap",
-			justifyContent: "center",
-		},
-	},
-	card: {
-		minWidth: 275,
-		marginBottom: theme.spacing(4),
-	},
-	image: {
-		height: 150,
-		width: "auto",
-		[theme.breakpoints.down("sm")]: {
-			order: -1,
-		},
-	},
-	date: {
-		fontSize: 14,
-	},
-}))
 
 export default function SamplePost({
 	excerpt,
@@ -44,38 +19,47 @@ export default function SamplePost({
 	slug,
 	jetpackFeaturedMediaUrl,
 }) {
-	const classes = useStyles()
-
 	return (
-		<Card className={classes.card}>
-			<div className={classes.cardActionArea}>
+		<Card sx={{ minWidth: 275, marginBottom: (theme) => theme.spacing(4) }}>
+			<Box
+				sx={{
+					display: "flex",
+					justifyContent: "space-between",
+					flexWrap: { xs: "wrap", sm: "nowrap" },
+					justifyItems: { xs: "center", sm: "space-between" },
+				}}>
 				<CardContent>
-					<Typography
-						className={classes.date}
-						color="textSecondary"
-						gutterBottom>
+					<Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
 						<ClockIcon /> {toDateString(date)}
 					</Typography>
 					<Typography
 						dangerouslySetInnerHTML={createMarkup(title.rendered)}
 						gutterBottom
 						variant="h5"
-						component="h2"/>
+						component="h2"
+					/>
 					<Typography variant="body2" component="div">
 						{getExcerpt(excerpt)}
 					</Typography>
 				</CardContent>
 				<CardMedia
 					component="img"
-					className={classes.image}
-					src={jetpackFeaturedMediaUrl || "/images/pulsar-logo.png"}/>
-			</div>
+					sx={{
+						height: 150,
+						width: "auto",
+						order: { xs: -1, sm: 0 },
+					}}
+					src={jetpackFeaturedMediaUrl || "/images/pulsar-logo.png"}
+				/>
+			</Box>
 			<CardActions>
-				<Link href={`/news/${slug}`} passHref>
-					<Button color="secondary" size="small">
-						Read More
-					</Button>
-				</Link>
+				<Button
+					component={Link}
+					href={`/news/${slug}`}
+					color="secondary"
+					size="small">
+					Read More
+				</Button>
 			</CardActions>
 		</Card>
 	)

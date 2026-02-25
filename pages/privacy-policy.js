@@ -1,6 +1,6 @@
 import React from "react"
-import { Container, Typography } from "@material-ui/core"
-import Head from "next/Head"
+import { Container, Typography } from "@mui/material"
+import Head from "next/head"
 import Section from "../components/Section"
 
 export default function PageTemplate() {
@@ -10,14 +10,17 @@ export default function PageTemplate() {
 				<meta property="og:title" content="Privacy Policy" />
 				<meta
 					property="og:url"
-					content="http://auburnpulsars.com/privacy-policy"/>
+					content="http://auburnpulsars.com/privacy-policy"
+				/>
 				<meta property="og:type" content="website" />
 				<meta
 					property="og:image"
-					content="http://auburnpulsars.com/images/pulsar-logo.png"/>
+					content="http://auburnpulsars.com/images/pulsar-logo.png"
+				/>
 				<meta
 					property="og:description"
-					content="Auburn Pulsars Running Club Website Privacy Policy"/>
+					content="Auburn Pulsars Running Club Website Privacy Policy"
+				/>
 			</Head>
 			<Container fixed maxWidth="md">
 				<Typography gutterBottom variant="h3">

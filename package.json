@@ -12,26 +12,27 @@
     "deploy": "serverless"
   },
   "dependencies": {
-    "@emotion/react": "^11.11.1",
-    "@emotion/styled": "^11.11.0",
-    "@mui/material": "^5.13.5",
+    "@emotion/react": "^11.14.0",
+    "@emotion/styled": "^11.14.1",
+    "@mui/material": "^7.3.8",
     "case-converter": "^1.0.1",
-    "classnames": "^2.2.6",
-    "html-to-text": "^6.0.0",
-    "isomorphic-unfetch": "^3.1.0",
-    "next": "^13.4.6",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "classnames": "^2.5.1",
+    "html-to-text": "^9.0.5",
+    "isomorphic-unfetch": "^4.0.2",
+    "next": "^16.1.6",
+    "react": "^19.2.4",
+    "react-dom": "^19.2.4",
+    "react-icons": "^5.5.0"
   },
   "devDependencies": {
-    "@babel/core": "^7.22.5",
-    "@babel/eslint-parser": "^7.22.5",
-    "eslint": "^8.42.0",
-    "eslint-config-prettier": "^6.4.0",
-    "eslint-plugin-prettier": "^3.1.1",
-    "eslint-plugin-react": "^7.16.0",
-    "prettier": "1.18.2",
-    "prettier-eslint": "^9.0.0"
+    "@babel/core": "^7.29.0",
+    "@babel/eslint-parser": "^7.28.6",
+    "eslint": "^9.0.0",
+    "eslint-config-prettier": "^10.1.8",
+    "eslint-plugin-prettier": "^5.5.5",
+    "eslint-plugin-react": "^7.37.5",
+    "prettier": "3.8.1",
+    "prettier-eslint": "^16.4.2"
   },
   "eslintConfig": {
     "extends": "react-app"

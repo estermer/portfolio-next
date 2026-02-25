@@ -1,28 +1,23 @@
 import React from "react"
-import { Container } from "@material-ui/core"
-import { makeStyles } from "@material-ui/styles"
-
-const useStyles = makeStyles(theme => ({
-	heroSection: {
-		display: "flex",
-		flexDirection: "column",
-		height: "92vh",
-		justifyContent: "center",
-		alignItems: "center",
-		textAlign: "center",
-		color: theme.palette.primary.contrastText,
-		backgroundColor: "transparent",
-	},
-}))
+import { Box, Container } from "@mui/material"
 
 export default function HeroSection({ children }) {
-	const classes = useStyles()
-
 	return (
-		<section className={classes.heroSection}>
+		<Box
+			component="section"
+			sx={{
+				display: "flex",
+				flexDirection: "column",
+				height: "92vh",
+				justifyContent: "center",
+				alignItems: "center",
+				textAlign: "center",
+				color: "primary.contrastText",
+				backgroundColor: "transparent",
+			}}>
 			<Container fixed maxWidth="md">
 				{children}
 			</Container>
-		</section>
+		</Box>
 	)
 }

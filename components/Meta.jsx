@@ -1,5 +1,5 @@
 import React from "react"
-import Head from "next/Head"
+import Head from "next/head"
 import { getExcerpt, getTitle } from "../lib/post-helpers"
 
 const fbAppId = process.env.REACT_APP_FB_APP_ID

@@ -15,7 +15,8 @@ export default function PageUnderConstruction() {
 			<img
 				alt="Under Construction"
 				src="/images/under-construction.png"
-				width="100%"/>
+				width="100%"
+			/>
 		</Section>
 	)
 }

@@ -1,21 +1,17 @@
 import React from "react"
-import { Container } from "@material-ui/core"
-import { makeStyles } from "@material-ui/styles"
-
-const useStyles = makeStyles(theme => ({
-	section: {
-		backgroundColor: theme.palette.background.default,
-		padding: `${theme.spacing(10)}px 0`,
-	},
-}))
+import { Box, Container } from "@mui/material"
 
 export default function Section({ children, className, maxWidth }) {
-	const classes = useStyles()
 	return (
-		<section className={classes.section}>
+		<Box
+			component="section"
+			sx={{
+				backgroundColor: "background.default",
+				padding: (theme) => `${theme.spacing(10)} 0`,
+			}}>
 			<Container className={className} fixed maxWidth={maxWidth || "lg"}>
 				{children}
 			</Container>
-		</section>
+		</Box>
 	)
 }

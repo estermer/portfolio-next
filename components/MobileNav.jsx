@@ -1,114 +1,98 @@
 import React, { useState } from "react"
-import Link from "next/Link"
+import Link from "next/link"
 import {
 	AppBar,
+	Box,
 	Container,
 	Drawer,
-	Hidden,
 	IconButton,
 	List,
-	ListItem,
+	ListItemButton,
 	ListItemText,
 	Toolbar,
 	useScrollTrigger,
-} from "@material-ui/core"
-import { makeStyles } from "@material-ui/styles"
+} from "@mui/material"
 import { MdMenu as MenuIcon, MdClose as CloseIcon } from "react-icons/md"
-import cx from "classnames"
-
-const useStyles = makeStyles(theme => ({
-	mobileAppBar: {
-		backgroundColor: theme.palette.background.default,
-		color: theme.palette.text.primary,
-		boxShadow: theme.shadows[4],
-	},
-	clearAppBar: {
-		backgroundColor: "transparent",
-		boxShadow: "none",
-		color: theme.palette.primary.contrastText,
-	},
-	mobileContainer: {
-		display: "flex",
-		alignItems: "center",
-		padding: `${theme.spacing(1)}px 0`,
-	},
-	logo: {
-		margin: "0 auto",
-	},
-	drawer: {
-		width: 300,
-		flexShrink: 0,
-	},
-	drawerPaper: {
-		width: 300,
-	},
-	drawerHeader: {
-		display: "flex",
-		alignItems: "center",
-		padding: theme.spacing(0, 1),
-		...theme.mixins.toolbar,
-		justifyContent: "flex-end",
-	},
-}))
 
 export default function MobileNav({ pathname }) {
 	const [isOpen, setIsOpen] = useState(false)
-	const classes = useStyles()
 	const scrollTrigger = useScrollTrigger({
 		disableHysteresis: true,
 		threshold: 100,
 	})
 
+	const isClear = !scrollTrigger && pathname === "/"
+
 	const handleDrawerOpen = () => setIsOpen(true)
 	const handleDrawerClose = () => setIsOpen(false)
 
 	return (
-		<Hidden mdUp>
+		<Box sx={{ display: { xs: "block", md: "none" } }}>
 			<AppBar
-				className={cx(classes.mobileAppBar, {
-					[classes.clearAppBar]: !scrollTrigger && pathname === "/",
-				})}
+				sx={
+					isClear
+						? {
+								backgroundColor: "transparent",
+								boxShadow: "none",
+								color: "primary.contrastText",
+							}
+						: {
+								backgroundColor: "background.default",
+								color: "text.primary",
+								boxShadow: (theme) => theme.shadows[4],
+							}
+				}
 				position="sticky">
 				<Toolbar>
-					<Container className={classes.mobileContainer}>
+					<Container
+						sx={{
+							display: "flex",
+							alignItems: "center",
+							padding: (theme) => `${theme.spacing(1)} 0`,
+						}}>
 						<IconButton color="inherit" onClick={handleDrawerOpen}>
 							<MenuIcon />
 						</IconButton>
-						<Link href="/" passHref>
-							<a className={classes.logo}>
-								<img alt="logo" src="/images/pulsar-logo.png" height="60px" />
-							</a>
+						<Link href="/" style={{ margin: "0 auto" }}>
+							<img alt="logo" src="/images/pulsar-logo.png" height="60px" />
 						</Link>
-						<div style={{ width: 50 }} />
+						<Box sx={{ width: 50 }} />
 					</Container>
 				</Toolbar>
 			</AppBar>
 			<Drawer
-				className={classes.drawer}
+				sx={{
+					width: 300,
+					flexShrink: 0,
+					"& .MuiDrawer-paper": { width: 300 },
+				}}
 				variant="persistent"
 				anchor="left"
-				open={isOpen}
-				classes={{
-					paper: classes.drawerPaper,
-				}}>
-				<div className={classes.drawerHeader}>
+				open={isOpen}>
+				<Box
+					sx={(theme) => ({
+						display: "flex",
+						alignItems: "center",
+						padding: theme.spacing(0, 1),
+						...theme.mixins.toolbar,
+						justifyContent: "flex-end",
+					})}>
 					<IconButton onClick={handleDrawerClose}>
 						<CloseIcon />
 					</IconButton>
-				</div>
+				</Box>
 				<List>
-					<Link href="/">
-						<ListItem onClick={handleDrawerClose} button>
-							<ListItemText primary="Home" />
-						</ListItem>
-					</Link>
-					<Link href="/about">
-						<ListItem onClick={handleDrawerClose} button>
-							<ListItemText primary="About" />
-						</ListItem>
-					</Link>
+					<ListItemButton component={Link} href="/" onClick={handleDrawerClose}>
+						<ListItemText primary="Home" />
+					</ListItemButton>
+					<ListItemButton
+						component={Link}
+						href="/about"
+						onClick={handleDrawerClose}>
+						<ListItemText primary="About" />
+					</ListItemButton>
 				</List>
 			</Drawer>
-		</Hidden>
+		</Box>
 	)
 }

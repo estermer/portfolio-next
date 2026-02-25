@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react"
 import PropTypes from "prop-types"
 import Head from "next/head"
-import { ThemeProvider } from "@material-ui/core/styles"
-import { CssBaseline } from "@material-ui/core"
+import { ThemeProvider } from "@mui/material/styles"
+import { CssBaseline } from "@mui/material"
 import theme from "../theme"
 import Nav from "../components/Nav"
 import MobileNav from "../components/MobileNav"
@@ -25,14 +25,6 @@ export default function MyApp({ Component, pageProps, router }) {
 			anchor.scrollIntoView({ block: "center" })
 		}
 	}
-
-	useEffect(() => {
-		// Remove the server-side injected CSS.
-		const jssStyles = document.querySelector("#jss-server-side")
-		if (jssStyles) {
-			jssStyles.parentElement.removeChild(jssStyles)
-		}
-	}, [])
 
 	useEffect(() => {
 		// handle initial load
@@ -77,14 +69,13 @@ export default function MyApp({ Component, pageProps, router }) {
 				<link rel="icon" href="/favicon.ico" />
 				<link rel="apple-touch-icon" href="/favicon.ico" />
 				<meta name="viewport" content="width=device-width, initial-scale=1" />
-				<meta
-					name="description"
-					content="Eric Stermer's Website"/>
+				<meta name="description" content="Eric Stermer's Website" />
 				<title>Eric Stermer</title>
 				<link rel="canonical" href="http://ericstermer.com/" />
 				<link
 					href="https://fonts.googleapis.com/css?family=Bree+Serif|Open+Sans&display=swap"
-					rel="stylesheet"/>
+					rel="stylesheet"
+				/>
 			</Head>
 			<ThemeProvider theme={theme}>
 				{/* CssBaseline kickstart an elegant, consistent, and simple baseline to build upon. */}
